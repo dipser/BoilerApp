@@ -75,7 +75,7 @@
   <tr>
     <td>CSS Precompiler</td>
     <td>SASS + compass</td>
-    <td>SASS + compass<br />LESS.js</td>
+    <td>SASS + compass<br /><a href="http://lesscss.org/">{less}</a></td>
   </tr>
   <tr>
     <td>Navigations-Leiste</td>
