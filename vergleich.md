@@ -98,3 +98,16 @@
     <td>Komponentenabh.</td>
   </tr>
 </table>
+
+
+###Sonstiges
+* [touchswipe](http://www.awwwards.com/touchswipe-a-jquery-plugin-for-touch-and-gesture-based-interaction.html)
+* [fastclick](https://github.com/ftlabs/fastclick)
+* [LightningTouch](https://github.com/ucsf-ckm/LightningTouch)
+* [Appcache Tutorial](http://www.html5rocks.com/en/tutorials/appcache/beginner/)
+* [TouchyBP](https://github.com/doat/TouchyBP)
+* [Page Transition Tutorial](http://coenraets.org/blog/2013/03/hardware-accelerated-page-transitions-for-mobile-web-apps-phonegap-apps/)
+* [ZeptoJS](http://zeptojs.com/)
+* [AngularJS](https://angularjs.org/)
+* 
+
