@@ -40,8 +40,8 @@
     <td>jQuery / JS</td>
   </tr>
   <tr>
-    <td>Audio</td>
-    <td></td>
+    <td>Jingle-Maker</td>
+    <td>Nein</td>
     <td>http://watilde.github.io/beeplay/</td>
   </tr>
   <tr>
