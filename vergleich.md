@@ -1,8 +1,6 @@
 #App
 
-##Sencha Touch
-[meta](https://github.com/whatwg/meta-brand-color)
-
+##Sencha Touch vs. Alternativen
 <table>
   <tr>
     <th>Features</th>
