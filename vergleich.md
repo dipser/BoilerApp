@@ -50,7 +50,7 @@
   <tr>
     <td>PageTransition</td>
     <td>Ja</td>
-    <td>http://tympanus.net/Development/PageTransitions/</td>
+    <td><a href="http://tympanus.net/Development/PageTransitions/">PageTransitions</a></td>
   </tr>
   <tr>
     <td>Geo</td>
