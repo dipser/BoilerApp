@@ -17,7 +17,7 @@
   <tr>
     <td>MVC</td>
     <td>Ja</td>
-    <td></td>
+    <td>http://awardwinningfjords.com/2011/02/18/model-and-data-store-javascriptmvc.html</td>
   </tr>
   <tr>
     <td>Scrolling</td>
@@ -27,7 +27,7 @@
   <tr>
     <td>Verschachtelte Listen</td>
     <td>Ja</td>
-    <td></td>
+    <td>http://jsfiddle.net/Gingah/2TPxn/</td>
   </tr>
   <tr>
     <td>Routing</td>
@@ -40,19 +40,19 @@
     <td>jQuery / JS</td>
   </tr>
   <tr>
+    <td>Audio</td>
     <td></td>
-    <td></td>
-    <td></td>
+    <td>http://watilde.github.io/beeplay/</td>
   </tr>
   <tr>
     <td>Touch</td>
     <td>Teilweise</td>
-    <td></td>
+    <td>Tocca.js</td>
   </tr>
   <tr>
-    <td>PageSlide</td>
+    <td>PageTransition</td>
     <td>Ja</td>
-    <td></td>
+    <td>http://tympanus.net/Development/PageTransitions/</td>
   </tr>
   <tr>
     <td>Geo</td>
