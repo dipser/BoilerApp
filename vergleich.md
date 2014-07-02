@@ -32,7 +32,7 @@
   <tr>
     <td>Routing</td>
     <td>Teilweise</td>
-    <td></td>
+    <td>Hashchange / History</td>
   </tr>
   <tr>
     <td>DOM</td>
