@@ -15,7 +15,7 @@
   <tr>
     <td>MVC</td>
     <td>Ja</td>
-    <td>http://awardwinningfjords.com/2011/02/18/model-and-data-store-javascriptmvc.html</td>
+    <td><a href="http://awardwinningfjords.com/2011/02/18/model-and-data-store-javascriptmvc.html">JS MVC Tutorial</a></td>
   </tr>
   <tr>
     <td>Scrolling</td>
