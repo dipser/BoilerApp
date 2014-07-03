@@ -1,6 +1,7 @@
 // forEach fÃ¼r document.querySelectorAll('.class')
 // Beispiel: document.querySelectorAll('.class').forEach(function(e){  });
 // Quelle: https://gist.github.com/DavidBruant/1016007
+// https://coderwall.com/p/jcmzxw
 NodeList.prototype.forEach = Array.prototype.forEach; 
 HTMLCollection.prototype.forEach = Array.prototype.forEach;
 
