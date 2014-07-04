@@ -32,3 +32,12 @@ document.onreadystatechange = function () {
 
 
 };
+
+
+	var onDeviceReady = function() {
+		console.log('DeviceReady');
+		window.addEventListener("hashchange", onHashChange, false);
+		window.dispatchEvent(new Event('hashchange'));
+		app.init();
+	};
+	document.addEventListener('deviceready', onDeviceReady, false);
