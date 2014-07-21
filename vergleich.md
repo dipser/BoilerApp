@@ -15,7 +15,7 @@
   <tr>
     <td>MVC</td>
     <td>Ja</td>
-    <td><a href="http://awardwinningfjords.com/2011/02/18/model-and-data-store-javascriptmvc.html">JS MVC Tutorial</a></td>
+    <td><a href="http://awardwinningfjords.com/2011/02/18/model-and-data-store-javascriptmvc.html">JS MVC Tutorial</a><br />knockoutjs.com</td>
   </tr>
   <tr>
     <td>Scrolling</td>
@@ -70,7 +70,7 @@
   <tr>
     <td>Zentrierung</td>
     <td>Ja</td>
-    <td></td>
+    <td>CSS Flex</td>
   </tr>
   <tr>
     <td>CSS Precompiler</td>
