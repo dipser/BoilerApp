@@ -1,0 +1,16 @@
+iTunes App Store:
+
+3.5-Inch Retina Display Screenshots
+-> 640px × 960px
+
+4-Inch Retina Display Screenshots
+-> 640px × 1.136px
+
+iPad Screenshots
+-> 768px × 1.024px
+
+
+------------------------
+
+
+Android App Store:
