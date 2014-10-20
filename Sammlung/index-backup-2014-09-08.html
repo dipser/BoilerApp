@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="res/css/index.css" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>title</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>title</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        <script src="cordova.js"></script>
+        <script src="res/lib/bootloader.js" id="bootloader" data-src="res/js/app.js"></script>
+        <script type="text/javascript" src="res/js/app.min.js"></script>
+        <script type="text/javascript">
+            // Development
+            /*if (typeof App == 'undefined') {
+                document.write(unescape('%3Cscript src="res/js/app.js"%3E%3C/script%3E'));
+            }*/
+
+            // Reihenfolge:
+            // init
+            // ready
+            // extend
+            // call
+
+            // Todo:
+            // Dateien nachladen vor READY Aufruf: $$.config.require = [];
+            // View-Routing: $$(fn, 'route', '/?#')
+            // Model/Store: $$(fn, 'modelstore')
+
+            function log() {
+              console.log.apply(undefined, arguments)
+            }
+
+
+            var $$ = window.$$ = {};
+            $$ = function() {
+              // Argument: str => dom selector => document.querySelector
+              // Argument: fn => Aufruf des Fn-Code, wenn ready (Speicherung in einem Array)
+              // Argument str, fn => str ist ein Funktionsname und fn die Funktion die exteded wird
+              console.log('Init', arguments);
+
+              $$.code.push(arguments[0]);
+              //console.log('>',$$.code);
+
+              if ($$.isReady) {
+                $$.main(); // => call code with shifting
+              } else {
+                if (!$$.initialized) {
+                  $$.initialized = true;
+                  document.addEventListener('DOMContentLoaded', $$.domready, false);
+                }
+              }
+
+              return $$;
+            };
+            $$.code = [];
+            $$.initialized = false;
+            $$.isDOMReady = false;
+            $$.isDeviceReady = false;
+            $$.isReady = false;
+            $$.domready = function() {
+              $$.isDOMReady = true;
+              if ($$.device.isNative) {
+                document.addEventListener("deviceready", $$.deviceready, false);
+              } else {
+                $$.deviceready();
+              }
+            };
+            $$.deviceready = function() {
+              $$.isDeviceReady = true;
+              $$.isReady = true;
+              console.log('READY');
+              $$.main();
+            };
+            $$.main = function() {
+              console.log('code runner');
+              while ($$.code.length) {
+                $$.code.shift().call(this);
+              }
+            };
+            /*$$.ready = $$('ready', function() {
+              console.log('fn: ready');
+            });*/
+            $$.ready = function() {console.log('ready');};
+            $$.device = {
+              isNative: (document.URL.match(/(https?:\/\/)(localhost)?/) != null)
+            };
+
+            var loader = {
+              queue: [],
+              loadScript: function(src, callback, sync){
+                var script = document.createElement("script");
+                $$.loadqueue.push({isLoaded:false, cb:callback, src:src, sync:(typeof sync === 'undefined' || sync===true)});//script.onload = callback;
+                script.onload = $$.loadqueuerunner; // isLoaded => true
+                document.head.appendChild(script);
+                script.src = src;
+              },
+              runner: function(){
+                for (var i in $$.loadqueue) {
+                  if ($$.loadqueue[i].isLoaded) {
+
+                  }
+                }
+              }
+            };
+            $$.loader = function(){console.log('asdf');};
+            //$$.loader = loader.prototype;
+            //console.log($$.loader.queue);
+
+
+
+
+
+// jApp() ruft jApp.fn.init() auf und liefert den return zurück.
+// jApp.fn.init() ist zu diesem Zeitpunkt noch nicht existent.
+var jApp = (function(){
+  var jApp = function () {
+    return new jApp.fn.init();
+  };
+  return jApp;
+})();
+
+// jApp wird an window übergeben
+window.$ = window.jApp = jApp;
+
+// Dem Funktionsobjekt von jApp wird ergänzt mit Methoden/Eigenschaften als Objekt (z.B. init)
+// und in fn ablegt
+jApp.fn = jApp.prototype = {
+  init: function () {
+    console.log('INIT');
+    jApp.argqueue.push(arguments);
+    if (jApp.isReady) {
+      jApp.main(); // => call code with shifting
+    } else {
+      if (!jApp.initialized) {
+        jApp.initialized = true;
+      }
+      if (!jApp.Device.isNative) {
+        jApp.isDevReady = true;
+      }
+      if (!jApp.isDocReady) {
+        document.addEventListener('DOMContentLoaded', function(){ jApp.isDocReady = true; }, false);
+      }
+      if (!jApp.isDevReady) {
+        document.addEventListener("deviceready", function() { jApp.isDevReady = true; }, false);
+      }
+    }
+  },
+  awesome: function () {
+    console.log('AWESOME');
+    return jApp.fn;
+  }
+}
+jApp.fn.init.prototype = jApp.fn;
+
+// jApp Plugin
+jApp.fn.foo = function(){
+  console.log('FOO');
+  return jApp(this);
+};
+
+// Internal Status
+jApp.initialized = false;
+jApp.isDocReady = false;
+jApp.isDevReady = false;
+jApp.isReady = false;
+jApp.argqueue = [];
+jApp.main = function(){console.log('main');};
+
+// 
+jApp.Utils = {};
+jApp.Device = {
+  isNative: (document.URL.match(/(https?:\/\/)(localhost)?/) != null)
+};
+jApp.Geo = {};
+jApp.Appcache = {};
+jApp.Storage = {};
+jApp.Route = {};
+jApp.Ajax = {};
+jApp.JSONP = {};
+jApp.Hotpush = {}; // Quelltext wird zur Laufzeit nachgeladen => LocalStorage
+jApp.Camera = {};
+jApp.Knockout = {}; // Knockout.js
+
+
+// Tests
+jApp().awesome();
+jApp().awesome().awesome();
+jApp().foo().awesome();
+
+
+
+
+
+
+            // Eigene Funktionen
+            $$.hallo = function() {console.log('hallo');};
+            $$.hallo();
+
+            // Datei 1
+            $$(function(){
+              console.log('erweiterung 1');
+            });
+
+            // Datei 2
+            window.setTimeout(function(){
+              $$(function(){
+                console.log('erweiterung 2');
+              })
+            }, 2000);
+
+
+
+            $$(function(){
+              console.log('erweiterung 3');
+              //$$.routes('hallo welt');
+
+            });
+        </script>
+    </body>
+</html>
