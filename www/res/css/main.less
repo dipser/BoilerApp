@@ -1,0 +1,148 @@
+@import "../lib/jquery-appon-0.5.0.less";
+
+
+
+/*
+100    Extra Light or Ultra Light
+200    Light or Thin
+300    Book or Demi
+400    Normal or Regular
+500    Medium
+600    Semibold, Demibold
+700    Bold
+800    Black, Extra Bold or Heavy
+900    Extra Black, Fat, Poster or Ultra Black
+*/
+
+@font-face {
+	font-family: "WEBFONT";
+	font-style: normal;
+	font-weight: 400;
+	src: url('../font/WEBFONT.eot');
+	src: url('../font/WEBFONT.eot#iefix') format('embedded-opentype'),
+		 url('../font/WEBFONT.woff') format('woff');
+}
+
+
+@font: WEBFONT, sans-serif;
+
+
+.mm-width(@width) {
+	min-width: @width;
+	max-width: @width;
+}
+.mm-height(@height) {
+	min-height: @height;
+	max-height: @height;
+}
+.flexcenter() {
+	.display(flex);
+	.flex(1);
+	.justify-content(center);
+	.align-items(center);
+}
+
+
+.flexrow1of3 { .display(flex); .flex-direction(row); .flex(1); .mm-height(33.3333%); }
+.flexrow2of3 { .display(flex); .flex-direction(row); .flex(1); .mm-height(66.6666%); }
+.flexcol1of2 { .display(flex); .flex(1); .mm-width(50%); }
+
+
+.ellipsis(@width: 100%) {
+	text-overflow: ellipsis;
+	width: @width;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+body {
+	color: #666;
+	font-family: @font;
+	font-weight: 400;
+	font-size: 14px;
+	background-color: #ffffff;
+}
+
+
+main>header {}
+main>section {}
+main>footer {}
+
+
+
+section>header {
+	.mm-height(60px);
+}
+section>section {
+}
+section>footer {
+	.mm-height(55px);
+}
+
+section.page-startup>header {
+	height: 0;
+}
+section.page-startup>section {
+	background-color: #b4d455;
+	.flexcenter();
+}
+
+
+
+// Alle Pages
+main>section>header {
+	.head {
+		.display(flex);
+		.mm-height(60px);
+		font-size: 16px;
+
+		.left {
+			.flexcenter();
+			flex: 1;
+			.mm-width(55px);
+
+			a { display: inline-block; height: 33px; }
+		}
+		.title {
+			.flexcenter();
+			text-transform: uppercase;
+			&>div{.ellipsis();text-align:center;}
+		}
+		.right {
+			.flexcenter();
+			.flex(1);
+			.mm-width(55px);
+
+			a { display: inline-block; height: 33px; }
+		}
+	}
+}
+
+
+
+
+.page-index {
+	header {
+		background-color: #ffffff;
+	}
+	section > div {
+		.display(flex);
+		.flex-direction(column);
+		.flex(1);
+
+	}
+}
+
+
+
+
+
+.page-listview {
+	section {
+		.scrollwrap { background-color: #555; }
+		.scrollwrap > .scroll { background-color: #555; }
+	}
+}
+
+

@@ -1,0 +1,598 @@
+/**
+ * background-size
+ *
+ * History
+ * 29.09.2014 - Aurel Hermand - Initial version
+ */
+
+
+.background-size(@val) {
+	-webkit-background-size: @val;
+	-moz-background-size: @val;
+	background-size: @val;
+}/**
+ * border-radius
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+.border-radius(@radius) {
+	border-radius: @radius;
+}
+
+.border-top-radius(@radius) {
+	border-top-right-radius: @radius;
+	border-top-left-radius: @radius;
+}
+.border-right-radius(@radius) {
+	border-top-right-radius: @radius;
+	border-bottom-right-radius: @radius;
+}
+.border-bottom-radius(@radius) {
+	border-bottom-right-radius: @radius;
+	border-bottom-left-radius: @radius;
+}
+.border-left-radius(@radius) {
+	border-top-left-radius: @radius;
+	border-bottom-left-radius: @radius;
+}/**
+ * box-shadow
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+.box-shadow(@shadow) {
+	-webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
+	box-shadow: @shadow;
+}/**
+ * box-sizing
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+.box-sizing(@boxmodel) {
+  -webkit-box-sizing: @boxmodel;
+  -moz-box-sizing: @boxmodel;
+  box-sizing: @boxmodel;
+}/**
+ * hyphens
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+// Clearfix
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
+.clearfix() {
+	&:before,
+	&:after {
+		content: " "; /* 1 */
+		display: table; /* 2 */
+	}
+	&:after {
+		clear: both;
+	}
+}/**
+ * filter-blur
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+.filter-blur(@val: 20px) {
+    -webkit-filter: blur(@val);
+    -moz-filter: blur(@val);
+    -ms-filter: blur(@val);
+    -o-filter: blur(@val);
+    filter: blur(@val);
+}// https://github.com/codio/Flex.less
+
+// FlexLess
+// ========
+//
+// Less mixins for using flexbox without crying.
+//
+// Last update: 02.08.2013
+
+
+
+
+// Enabeling Flexbox
+// -----------------
+//
+// Property Name: display
+// Values: flex | inline-flex
+.display(@value: flex) when (@value = flex) {
+    display: -moz-box;              // Mozilla Old
+    display: -webkit-box;           // Webkit Old
+}
+
+.display(@value: flex) when (@value = inline-flex) {
+    display: -moz-inline-box;       // Mozilla Old
+    display: -webkit-inline-box;    // Webkit Old
+}
+
+.display(@value: flex) {
+    display: ~"-webkit-@{value}";  // Webkit Standard
+    display: ~"-moz-@{value}";     // Mozilla Standard
+    display: ~"-ms-@{value}box";   // IE 10 Mid
+    display: ~"-ms-@{value}";      // IE 11 Standard
+    display: @value;               // Standard
+}
+
+
+// Axis Alignment
+// --------------
+//
+// Property Name: justify-content
+// Values: flex-start | flex-end | center | space-between | space-around
+.justify-content(@value: flex-start) when (@value = flex-start) {
+    -webkit-box-pack: start;          // Webkit Old
+       -moz-box-pack: start;          // Mozilla Old
+       -ms-flex-pack: start;          // IE 10 Mid
+}
+
+.justify-content(@value: flex-start) when (@value = center) {
+    -webkit-box-pack: center;         // Webkit Old
+       -moz-box-pack: center;         // Mozilla Old
+       -ms-flex-pack: center;         // IE 10 Mid
+
+}
+
+.justify-content(@value: flex-start) when (@value = flex-end) {
+    -webkit-box-pack: end;            // Webkit Old
+       -moz-box-pack: end;            // Mozilla Old
+       -ms-flex-pack: end;            // IE 10 Mid
+}
+
+.justify-content(@value: flex-start) when (@value = space-between) {
+    -webkit-box-pack: justify;        // Webkit Old
+       -moz-box-pack: justify;        // Mozilla Old
+       -ms-flex-pack: justify;        // IE 10 Mid
+}
+
+.justify-content(@value: flex-start) when (@value = space-around) {
+       -ms-flex-pack: distribute;     // IE 10 Mid
+}
+
+.justify-content(@value: flex-start) {
+    -webkit-justify-content: @value;  // Webkit Standard
+       -moz-justify-content: @value;  // Mozilla Standard
+        -ms-justify-content: @value;  // IE 11 Standard
+            justify-content: @value;  // Standard
+}
+
+// Cross Axis Alignment
+// --------------------
+//
+// Property Name: align-items
+// Values: flex-start | flex-end | center | baseline | stretch
+.align-items(@value: stretch) when (@value = flex-start) {
+    -webkit-box-align: start;          // Webkit Old
+       -moz-box-align: start;          // Mozilla Old
+       -ms-flex-align: start;          // IE 10 Mid
+}
+
+.align-items(@value: stretch) when (@value = center), (@value = baseline), (@value = stretch) {
+    -webkit-box-align: @value;         // Webkit Old
+       -moz-box-align: @value;         // Mozilla Old
+       -ms-flex-align: @value;         // IE 10 Mid
+
+}
+
+.align-items(@value: stretch) when (@value = flex-end) {
+    -webkit-box-align: end;            // Webkit Old
+       -moz-box-align: end;            // Mozilla Old
+       -ms-flex-align: end;            // IE 10 Mid
+}
+
+.align-items(@value: stretch) {
+    -webkit-align-items: @value;  // Webkit Standard
+       -moz-align-items: @value;  // Mozilla Standard
+        -ms-align-items: @value;  // IE 11 Standard
+            align-items: @value;  // Standard
+}
+
+
+
+// Individual Cross-Axis Alignment
+// -------------------------------
+//
+// Property Name: align-self
+// Values: auto | flex-start | flex-end | center | baseline | stretch
+.align-self(@value: auto) when (@value = flex-start) {
+       -ms-flex-item-align: start;       // IE 10 Mid
+}
+
+.align-self(@value: auto) when (@value = auto), (@value = center), (@value = baseline), (@value = stretch) {
+       -ms-flex-item--align: @value;      // IE 10 Mid
+}
+
+.align-self(@value: auto) when (@value = flex-end) {
+       -ms-flex-item-align: end;         // IE 10 Mid
+}
+
+.align-self(@value: auto) {
+    -webkit-align-self: @value;          // Webkit Standard
+       -moz-align-self: @value;          // Mozilla Standard
+        -ms-align-self: @value;          // IE 11 Standard
+            align-self: @value;          // Standard
+}
+
+
+// Flex Line Alignment
+// -------------------
+//
+// Property Name: align-content
+// Values: flex-start | flex-end | center | space-between | space-around | stretch
+.align-content(@value: auto) when (@value = flex-start) {
+       -ms-flex-line-pack: start;        // IE 10 Mid
+}
+
+.align-content(@value: auto) when (@value = center), (@value = stretch) {
+       -ms-flex-line-pack: @value;       // IE 10 Mid
+}
+
+.align-content(@value: auto) when (@value = flex-end) {
+       -ms-flex-line-pack: end;          // IE 10 Mid
+}
+
+.align-content(@value: auto) when (@value = space-between) {
+       -ms-flex-line-pack: justify;      // IE 10 Mid
+}
+
+.align-content(@value: auto) when (@value = space-around) {
+       -ms-flex-line-pack: distribute;   // IE 10 Mid
+}
+
+.align-content(@value: auto) {
+    -webkit-align-content: @value;       // Webkit Standard
+       -moz-align-content: @value;       // Mozilla Standard
+        -ms-align-content: @value;       // IE 11 Standard
+            align-content: @value;       // Standard
+}
+
+
+
+// Display Order
+// -------------
+//
+// Property Name: order
+// Values: <integer>
+.order(@value: 0) {
+   -webkit-box-ordinal-group: @value + 1;   // Webkit Old
+      -moz-box-ordinal-group: @value + 1;   // Mozilla Old
+              -ms-flex-order: @value;       // IE 10 Mid
+               -webkit-order: @value;       // Webkit Standard
+                  -moz-order: @value;       // Mozilla Standard
+                   -ms-order: @value;       // IE 11 Standard
+                       order: @value;       // Standard
+}
+
+
+// Flexibillity
+// ------------
+//
+// Property Name: flex
+// Values: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+.flex (@grow: 1, @shrink: 1, @basis: 0%) {
+   -webkit-box-flex: @grow;         // Webkit Old
+      -moz-box-flex: @grow;         // Mozilla Old
+       -webkit-flex: @arguments;    // Webkit Standard
+          -moz-flex: @arguments;    // Mozilla Standard
+           -ms-flex: @arguments;    // IE 10 Mid, IE 11 Standard
+               flex: @arguments;    // Standard
+}
+
+
+// Longhand - Flex Grow
+// --------------------
+//
+// Property Name: flex-grow
+// Value: <number>
+.flex-grow(@value: 0) {
+    -webkit-flex-grow: @value;      // Webkit Standard
+       -moz-flex-grow: @value;      // Mozilla Standard
+        -ms-flex-grow: @value;      // IE 10 Mid, IE 11 Standard
+            flex-grow: @value;      // Standard
+}
+
+// Longhand - Flex Shrink
+// --------------------
+//
+// Property Name: flex-shrink
+// Value: <number>
+.flex-shrink(@value: 1) {
+    -webkit-flex-shrink: @value;      // Webkit Standard
+       -moz-flex-shrink: @value;      // Mozilla Standard
+        -ms-flex-shrink: @value;      // IE 10 Mid, IE 11 Standard
+            flex-shrink: @value;      // Standard
+}
+
+// Longhand - Flex Basis
+// --------------------
+//
+// Property Name: flex-basis
+// Value: <number>
+.flex-basis(@value: auto) {
+    -webkit-flex-basis: @value;      // Webkit Standard
+       -moz-flex-basis: @value;      // Mozilla Standard
+        -ms-flex-basis: @value;      // IE 10 Mid, IE 11 Standard
+            flex-basis: @value;      // Standard
+}
+
+
+
+// Direction
+// ---------
+//
+// Property Name: flex-direction
+// Values: row | row-reverse | column | column-reverse
+.flex-direction(@value: row) when (@value = row) {
+    .box-orient(horizontal);
+    .box-direction(normal);
+}
+
+.flex-direction(@value: row) when (@value = row-reverse) {
+    .box-orient(horizontal);
+    .box-direction(reverse);
+
+}
+
+.flex-direction(@value: row) when (@value = column) {
+    .box-orient(vertical);
+    .box-direction(normal);
+}
+
+.flex-direction(@value: row) when (@value = column-reverse) {
+    .box-orient(vertical);
+    .box-direction(reverse);
+}
+
+.flex-direction(@value: row) {
+    -webkit-flex-direction: @value;   // Webkit Standard
+       -moz-flex-direction: @value;   // Mozilla Standard
+        -ms-flex-direction: @value;   // IE 10 Mid, IE 11 Standard
+            flex-direction: @value;   // Standard
+}
+
+
+
+// Old Properties
+// --------------
+.box-direction(@value) {
+    -webkit-box-direction: @value;    // Webkit Old
+       -moz-box-direction: @value;    // Mozilla Old
+}
+
+.box-orient(@value) {
+    -webkit-box-orient: @value;       // Webkit Old
+       -moz-box-orient: @value;       // Mozilla Old
+}
+
+
+
+// Wrapping
+// --------
+//
+// Property Name: flex-wrap
+// Values: nowrap | wrap | wrap-reverse
+.flex-wrap(@value: nowrap) when (@value = nowrap) {
+    -webkit-box-lines: single;      // Webkit Old
+       -moz-box-lines: single;      // Mozilla Old
+}
+
+.flex-wrap(@value: nowrap) when (@value = wrap) {
+    -webkit-box-lines: multiple;    // Webkit Old
+       -moz-box-lines: mulitple;    // Mozilla Old
+}
+
+.flex-wrap(@value: nowrap) {
+    -webkit-flex-wrap: @value;      // Webkit Standard
+       -moz-flex-wrap: @value;      // Mozilla Standard
+        -ms-flex-wrap: @value;      // IE 10 Mid, IE 11 Standard
+            flex-wrap: @value;      // Standard
+}
+
+
+// Shorthand - Flex Flow
+// ---------------------
+//
+// Property Name: flex-flow
+// Values: <‘flex-direction’> || <‘flex-wrap’>
+.flex-flow(@direction: row, @wrap: nowrap) {
+    -webkit-flex-flow: @arguments;    // Webkit Standard
+       -moz-flex-flow: @arguments;    // Mozilla Standard
+        -ms-flex-flow: @arguments;    // IE 10 Mid, IE 11 Standard
+            flex-flow: @arguments;
+}/**
+ * hyphens
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+.hyphens(@mode: auto) { // auto | none
+	word-wrap: break-word;
+	-webkit-hyphens: @mode;
+	-moz-hyphens: @mode;
+	-ms-hyphens: @mode; // IE10+
+	-o-hyphens: @mode;
+	hyphens: @mode;
+}/**
+ * img-responsive
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+.img-responsive(@display: block;) {
+  display: @display;
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+.img-full-responsive(@display: block;) {
+  display: @display;
+  width: 100%;
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}/**
+ * opacity
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+// Source: Bootstrap 3
+.opacity(@opacity) {
+	opacity: @opacity;
+	// IE8 filter
+	@opacity-ie: (@opacity * 100);
+	filter: ~"alpha(opacity=@{opacity-ie})";
+}/**
+ * placeholder
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+
+// Source Bootstrap3
+.placeholder(@color) {
+  &:-moz-placeholder            { color: @color; } // Firefox 4-18
+  &::-moz-placeholder           { color: @color; } // Firefox 19+
+  &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
+}/**
+ * tab-size
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+.tab-size(@val: 4) {
+	-webkit-tab-size: @val;
+	-moz-tab-size: @val;
+	-o-tab-size: @val;
+	tab-size: @val;
+}/**
+ * table
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+.table {
+	display: table;
+	border-collapse: collapse;
+	box-sizing: border-box;
+
+	.tr {
+		display: table-row;
+		box-sizing: border-box;
+		
+		.th {
+			display: table-cell;
+			box-sizing: border-box;
+			text-align: center;
+		}
+
+		.td {
+			display: table-cell;
+			box-sizing: border-box;
+		}
+	}
+}/**
+ * text-size-adjust
+ *
+ * History
+ * 11.09.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+.text-size-adjust(@val) {
+	-webkit-text-size-adjust: @val;
+	-moz-text-size-adjust: @val;
+	-ms-text-size-adjust: @val;
+	-o-text-size-adjust: @val;
+	text-size-adjust: @val;
+}
+/**
+ * transform
+ *
+ * History
+ * 11.09.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+.transform(@val) {
+  -webkit-transform: @val;
+  -moz-transform: @val;
+  -ms-transform: @val;
+  -o-transform: @val;
+  transform: @val;
+}
+/**
+ * transition
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+  transition: @transition;
+}
+
+.transition-delay(@transition-delay) {
+  -webkit-transition-delay: @transition-delay;
+  transition-delay: @transition-delay;
+}
+.transition-duration(@transition-duration) {
+  -webkit-transition-duration: @transition-duration;
+  transition-duration: @transition-duration;
+}
+.transition-transform(@transition) {
+  -webkit-transition: -webkit-transform @transition;
+  -moz-transition: -moz-transform @transition;
+  -o-transition: -o-transform @transition;
+  transition: transform @transition;
+}/**
+ * user-select
+ *
+ * History
+ * 05.03.2014 - Aurel Hermand (Vegvisir) - Initial version
+ */
+
+
+.user-select(@val: none) { // Values: none | text | toggle | element | elements | all | inherit
+	-webkit-touch-callout: @val;
+	-webkit-user-select: @val;
+	-moz-user-select: @val;
+	-ms-user-select: @val;
+	user-select: @val;
+}
