@@ -117,3 +117,4 @@
 * [WURFL.js](http://wurfl.io)
 * [fetch](https://github.com/github/fetch)
 * [Subscribe/Publish](https://www.scaledrone.com/)
+* [document.visibilityState](http://www.smashingmagazine.com/2015/01/20/creating-sites-with-the-page-visibility-api/)
