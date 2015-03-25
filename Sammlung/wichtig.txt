@@ -4,3 +4,6 @@
 	
 	
 	localStorage muss von zeit zu zeit gelöscht werden, wenn online
+
+
+am besten noch einen allgemeinen localStorage-clearer einbauen über URL-Parameter: ?clearstorage
