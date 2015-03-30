@@ -1,4 +1,4 @@
-	if ( navigator.online && Math.round(new Date(localStorage['http://samo.werfenweng.org/app/www/res/css/main.less:timestamp']).getTime()/1000) < Math.round(new Date().getTime()/1000) - 3600*24*14 ) {
+	if ( navigator.onLine && Math.round(new Date(localStorage['http://samo.werfenweng.org/app/www/res/css/main.less:timestamp']).getTime()/1000) < Math.round(new Date().getTime()/1000) - 3600*24*14 ) {
 		localStorage.clear();
 	}
 	
